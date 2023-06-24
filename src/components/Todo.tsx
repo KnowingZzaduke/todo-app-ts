@@ -1,17 +1,25 @@
-import { type ListOfTodos } from '../types.d'
-
-//  Hay ciertos casos en donde es mejor usar interface, en este caso lo utilizamos ya que no es un objeto. Lo utilizamos para pasar parámetros a los props
-
-interface Props {
-  todos: ListOfTodos
+import type { Todo, TodoId } from "@types/types"
+interface Props extends Todo {
+  onRemove: (id: TodoId) => void
 }
-//  De esta manera tipamos las props
-export const Todos: React.FC<Props> = ({ todos }) => {
+
+export const TodoList: React.FC<Props> = ({ id, title, completed, onRemove }) => {
   return (
-    <ul>
-      {todos.map((todo) => (
-        <li className={`${todo.completed ? "completed" : ""}`} key={todo.id}>{todo.title} </li>
-      ))}
-    </ul>
+    <div className={`view ${completed ? "completed" : ""}`}>
+      <input
+        className="toggle-all"
+        type="checkbox"
+        checked={completed}
+      />
+      <label>{title}</label>
+      <button
+        className="delete-button"
+        onClick={() => {
+          onRemove({ id })
+        }}
+      >
+        Eliminar Tarea
+      </button>
+    </div>
   )
 }

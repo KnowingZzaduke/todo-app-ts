@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Ysabeau+Infant:ital@1&display=swap");
+body {
+  margin: 0%;
+  padding: 0%;
+  font-family: "Ysabeau Infant", sans-serif;
+  filter: invert(1);
+}
+
+.todo-app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.todo-app .container {
+  width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.todo-item.completed {
+  background-color: #f2f2f2;
+  text-decoration: line-through;
+}
+
+.delete-button {
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #e60000;
+}
+
+.view {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "NombreDeLaFuente", sans-serif;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.view label {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.view .delete-button {
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.view .delete-button:hover {
+  background-color: #e60000;
+}
+
+.view {
+  /* ... otros estilos ... */
+  position: relative;
+}
+
+.view .completed-task::after {
+  content: "";
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #000;
+}
